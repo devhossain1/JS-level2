@@ -1,88 +1,65 @@
-
-// const input = document.querySelector("input[name=name]");
-// input.addEventListener('change', changeHandler);
-
-// function changeHandler(e){
-//     //console.log(e);
-//     //console.log(e.type);
-//     //console.log(e.target);
-//     //console.log(e.target.className);
-//     //console.log(e.target.id);
-//     console.log(e.target.value);
-// }
-
-// const programs = document.querySelectorAll("input[name=program]");
-// //console.log(programs);
-// Array.from(programs).map((program)=>{
-//     program.addEventListener('change', programHandler);
-// });
-// function programHandler(e){
-   
-//     if(e.target.checked){
-//        console.log(e.target.value);
-//     }
-// }
-
-// const department = document.querySelector("#department");
-// //console.log(department);
-// department.addEventListener('change',departmentHandler);
-
-// function departmentHandler(e){
-//     console.log(e.target.value);
-// }
-//finding the elements
-// const form = document.querySelector("form");
-// const name = form.querySelector("div #name");
-// const email = form.querySelector("div #email");
-// const password = form.querySelector("div #password");
-
-// form.addEventListener('submit', formHandler);
-
-// function formHandler(e){
-//     e.preventDefault();
-   
-//     const userInfo = {
-//         name:name.value,
-//         email:email.value,
-//         password:password.value
-//     };
-
-//     console.log(userInfo);
-
-//     name.value="";
-//     email.value= "";
-//     password.value="";
-  
-// }
-
-//video events
-// const video = document.querySelector("video");
-
-// video.addEventListener('canplay', function(){
-//     console.log('canplay');
-// //});
-
-// video.addEventListener('play', function(){
-//     console.log('play');
-// });
-// video.addEventListener('pause', function(){
-//     console.log('pause');
-// });
-// video.addEventListener('ended', function(){
-//     console.log('thanks for watching');
-// });
-// video.addEventListener('volumechange', function(){
-//     console.log('volumechange');
-// });
-
-// window.addEventListener('load',function(){
-//     console.log('load');
-// });
-// window.addEventListener("scroll",function(){
-//     console.log('scroll');
+// const details = document.querySelector("details");
+// details.addEventListener('toggle',function(e){
+//     console.log(e.target.open);
 // })
-window.addEventListener("resize", function(){
-    const height = window.outerHeight;
-    const width = window.outerWidth;
-    console.log(`height: ${height}, width: ${width}`);
-});
+
+// const div = document.querySelector("div");
+// div.addEventListener('click',function(event){
+    //console.log('click is occured');
+    //console.log(event.target);
+    //console.log(event.target.className);
+    //console.log(event.target.id);
+    // console.log(event.target.innerHTML);
+    // console.log(event.target.textContent);
+    //console.log(event.target.innerText);
+
+//});
+
+// div.addEventListener('dblclick',function(){
+//     console.log('duble click is occured');
+// });
+// div.addEventListener('mousedown',function(){
+//     console.log('mousedown is occured');
+// });
+// div.addEventListener('mouseup',function(){
+//     console.log('mouseup is occured');
+// });
+// div.addEventListener('mouseenter',function(){
+//     console.log('mouseenter is occured');
+// });
+// div.addEventListener('mouseleave',function(){
+//     console.log('mouseleave is occured');
+// });
+// div.addEventListener('mouseover',function(){
+//     console.log('mouseover is occured');
+// });
+// div.addEventListener('mousemove',function(e){
+//     //console.log('mousemove is occured');
+//     //console.log(`clientX = ${e.clientX}, clientY = ${e.clientY}`);
+//     console.log(`offsetX = ${e.offsetX}, offsetY = ${e.offsetY}`);
+// });
+
+// const buttons = document.querySelectorAll('.btn');
+// Array.from(buttons).map((button)=>{
+//     button.addEventListener('click', function(e){
+//         console.log(e.target.innerText);
+//     })
+// });
+
+const textArea = document.querySelector("textarea");
+
+ textArea.addEventListener('keydown',function(){
+   console.log('keydown');
+ });
+// textArea.addEventListener('keypress',function(){
+//     console.log('keypress');
+// });
+// textArea.addEventListener('keyup',function(e){
+//     // console.log(e.keyCode);
+//     //console.log(e.key);
+//     // console.log(e.code);
+//     //console.log(e.shiftKey);
+//     if(e.shiftKey){
+//         console.log(`shift + ${e.key}`);
+//     }
+// });
