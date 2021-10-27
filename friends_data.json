@@ -1,0 +1,63 @@
+
+{
+"students":[
+    {
+        "name":"hossain",
+        "middlename":null,
+        "age":28,
+        "cgpa":3.24,
+        "isRegistared":true,
+        "language":["bangla","english","hindi"],
+        "friends":[
+            {
+                "name":"rahim",
+                "age":29
+            },
+            {
+                "name":"rahim",
+                "age":29
+            }
+        ]
+    },
+    {
+        "name":"Ahmed",
+        "middlename":null,
+        "age":26,
+        "cgpa":3.64,
+        "isRegistared":false,
+        "language":["bangla","english","urdhu"],
+        "friends":[
+            {
+                "name":"rahman",
+                "age":39
+            },
+            {
+                "name":"rahima",
+                "age":30
+            }
+        ]
+    }
+],
+"friends":[
+    {
+        "name":"hossain",
+        "middlename":null,
+        "age":28,
+        "cgpa":3.24,
+        "isRegistared":true,
+        "language":["bangla","english","hindi"],
+        "friends":[
+            {
+                "name":"rahim",
+                "age":29
+            },
+            {
+                "name":"rahim",
+                "age":29
+            }
+        ]
+    }
+    
+]
+
+}
