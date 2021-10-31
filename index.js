@@ -1,72 +1,111 @@
-// var firstName, lastName;
-// firstName= "hossain";
-// lastName = "ahmed"
 
-// //alert(`${firstName} ${lastName} is the full name`);
-// var lastName= prompt('what is the last name');
-// console.log(firstName + ' ' + lastName);
+function calculateAge(birthYear){
+    return 2021-birthYear;
+}
+let johnAge=calculateAge(1992);
+console.log(johnAge);
 
-let massmark = 78;
-let heightmark = 1.69;
-let massjohn = 92;
-let heightjohn = 1.92;
-let bmiMark = massmark/(heightmark*heightmark);
-let bmiJohn = massjohn/(heightjohn*heightjohn);
-console.log(bmiMark, bmiJohn);
-let hegherThan = bmiMark>bmiJohn;
-console.log(`is it true or false? = ${hegherThan}`);
+function untilRetirement(year, firstName){
+    let age = calculateAge(year);
+    let retirement = 60-age;
+    if(retirement>0){
+        console.log(firstName + ' retires in ' + retirement +' years');
+    }else{
+        console.log( firstName +' is already retired');
+    }
+    
 
-//ternary operator
-var age=18;
+}
+untilRetirement(1992, 'hossain');
+untilRetirement(1980, 'john');
+untilRetirement(1960, 'karim');
 
-let drink = age >= 18 ? 'he is adult' : 'he is boy'
-console.log(drink);
+//function expression
+var whatDoYouDo = function(job,firstName){
+    switch(job){
+      case 'teacher':
+          return firstName+ ' is a good teacher';
+      case 'driver':
+          return firstName + ' is a good driver';
+      case 'designer':
+          return firstName + 'is the best designer';       
+      default:
+          return firstName + 'does something else';
+    }
+}
+console.log(whatDoYouDo('teac', 'john'));
 
-var job = "driver";
-switch(job){
-    case 'teacher':
-        console.log(`john is a good teacher`);
-        break;
-    case 'driver':
-        console.log(`john is a good driver`);
-        break; 
-    case 'labour':
-        console.log(`john is a good labour`);
-        break;
-    default:
-        console.log("He does anather job");        
+function tipCalculator(bill){
+    let percentage;
+    if(bill<50){
+        percentage = .20;
+    }else if(bill >= 50 && bill<200){
+        percentage=.15;
+    }else{
+        percentage = .1;
+    }
+    return percentage * bill;
 }
 
-switch(true){
-    case age < 13:
-        console.log("john is a boy"); 
-        break;
-    case age >=13 && age<20:
-        console.log("john is a adult");
-        break;
-    case age>=20 && age<30:
-        console.log("john is a young");
-        break;
-    default:
-        console.log('he is anather man');    
-}
+var bills= [124,48,268];
+let tips =[tipCalculator(bills[0]),
+          tipCalculator(bills[1]),
+          tipCalculator(bills[2])];
 
-var height;
-height = 22;
-if(height || height===0){
-    console.log("variable is defined");
+let finalValue =[bills[0] + tips[0],
+                bills[0] + tips[0],
+                bills[0] + tips[0]];              
+console.log(tips, finalValue);
+
+// var john = {
+//    firstName:'john',
+//    lastName:'Doe',
+//    birthYear:1992,
+//    calcAge: function(){
+//        this.age= 2021-this.birthYear;
+//    }
+// }
+// john.calcAge();
+//console.log(john);
+
+//chalange for object
+var john = {
+    fullName:'john doe',
+    mass:75,
+    height:1.70,
+    calcBMI:function(){
+        this.bmi= this.mass/(this.height*this.height);
+        return this.bmi;
+    }
+ }
+
+ var mark = {
+    fullName:'mark doe',
+    mass:95,
+    height:1.75,
+    calcBMI:function(){
+        this.bmi= this.mass/(this.height*this.height);
+        return this.bmi;
+    }
+ }
+
+// john.calcBMI();
+// mark.calcBMI();
+
+
+if(john.calcBMI() > mark.calcBMI()){
+    console.log(john.fullName + " has a higher BMI of " + john.bmi);
+}else if(mark.bmi > john.bmi){
+    console.log(john.fullName + " has a higher BMI of " + mark.bmi); 
 }else{
-    console.log("variable is not defined");
+    console.log('they have the same BMI');
 }
+let johna = ['john', 'smith', 1234, true, 'blue'];
+// for(let i=0; i<johna.length; i++){
+//     if( typeof johna[i] !=='string') continue;
+//     console.log(johna[i]);
+// }
 
-let johnScore = (15+20+45)/2;
-let mikeScore = (25+30+45)/2;
-let maryScore = (35+50+45)/2;
-console.log(johnScore,mikeScore,maryScore);
-if(mikeScore>johnScore && mikeScore>maryScore){
-    console.log(` mike ${mikeScore} is winner`);
-}else if(maryScore>johnScore && maryScore>mikeScore){
-    console.log(` mary ${maryScore} is winner`);
-}else{
-    console.log('no one can win');
+for(let i=johna.length-1; i>=0; i--){
+    console.log(johna[i]);
 }
