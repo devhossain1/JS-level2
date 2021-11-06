@@ -1,92 +1,105 @@
 
-var scores, roundScore, activePlayer, dice, gamePlaying;
+/*
+var Person= function(name, yearOfBirth, job){
+    this.name = name;
+    this.yearOfBirth= yearOfBirth;
+    this.job= job;
+}
 
-init();
-document.querySelector('.dice').style.display='none';
+Person.prototype.calculateAge = function(){
+    console.log(2021-this.yearOfBirth);
+}
 
-document.querySelector('.btn--roll').addEventListener('click',function(){
-    if(gamePlaying){
-      //1. random number
-    let dice = Math.floor(Math.random()*6)+1;
-    //2. display the result
-    let diceDom = document.querySelector('.dice');
-    diceDom.style.display='block';
-    diceDom.src='dice-' + dice +'.png';
+Person.prototype.lastName = 'smith';
 
-    //3. update the round score if the rolled number is not a 1
-     if(dice!==1){
-         roundScore += dice;
-         document.querySelector('#current--' + activePlayer).textContent = roundScore;
-     }else{
-         nextPlayer();
-         //  document.querySelector('.player--0').classList.remove('player--active');
-        //  document.querySelector('.player--1').classList.add('player--active');
-     }
+var john = new Person('john',1990, 'teacher');
+var mark = new Person('mark',1992, 'doctor');
+var jane = new Person('jane',1994, 'developer');
+john.calculateAge();
+mark.calculateAge();
+jane.calculateAge();
+
+console.log(john.lastName);
+console.log(mark.lastName);
+console.log(jane.lastName);
+
+console.log(john);
+console.log(mark);
+*/
+/*
+var personProto = {
+    calculateAge:function(){
+        console.log(2021-this.yearOfBirth);
     }
+};
+var john= Object.create(personProto);
+john.name='john';
+john.yearOfBirth=1993;
+john.job = 'teacher';
+
+var jane = Object.create(personProto,{
+    name: { value:'jane'},
+    yearOfBirth: { value: 1992},
+    job: { value: 'teacher'}
 });
+*/
+//primitive and object
 
-document.querySelector('.btn--hold').addEventListener('click',function(){
-    if(gamePlaying){
-      //add current score to global
-     scores[activePlayer] += roundScore
+//primitive
+/*
+var a=23;
+var b=a;
+a=30;
+console.log(a);
+console.log(b);
 
-     //update UI
-     document.querySelector('#score--' + activePlayer).textContent = scores[activePlayer];
-     
-     //check if player won the game
+//object
+var obj1 = {
+    name:'john',
+    age:24
+};
+var obj2 = obj1;
+obj1.age = 30;
+console.log(obj1.age);
+console.log(obj2.age);
+//function
+var age = 34;
+var obj = {
+    name: 'jonas',
+    city:'dhaka'
+};
 
-     if(scores[activePlayer] >= winningScore){
-         document.querySelector('#name--' + activePlayer).textContent= 'Winner!';
-         document.querySelector('.dice').style.display = 'none';
-         document.querySelector('.player--' + activePlayer).classList.add('player--winner');
-         document.querySelector('.player--' + activePlayer).classList.remove('player--active');
-         gamePlaying=false;
-     }else{
-         //next play
-         nextPlayer();
-     }
+function change(a, b){
+    a=28;
+    b.city='Mirput';
+};
+change(age, obj);
+console.log(age);
+console.log(obj.city);
+*/
+
+var years = [1990,1986, 1993,2007,1967];
+function arrayCalc(arr,fn){
+    var arrRes =[];
+    for(var i =0; i<arr.length; i++){
+        arrRes.push(fn(arr[i]));
     }
-    
-})
-
-function nextPlayer(){
-    //next player
-    activePlayer===0 ? activePlayer=1 :activePlayer=0;
-    roundScore=0;
-    document.getElementById('current--0').textContent='0';
-    document.getElementById('current--1').textContent='0';
-
-    document.querySelector('.player--0').classList.toggle('player--active');
-    document.querySelector('.player--1').classList.toggle('player--active');
-   
-   document.querySelector('.dice').style.display='none';
-   
+    return arrRes;
 }
-document.querySelector('.btn--new').addEventListener('click', init);
-
-function init(){
-    scores=[0,0];
-    roundScore= 0;
-    activePlayer=0;
-    gamePlaying = true;
-document.getElementById('score--0').textContent='0';
-document.getElementById('score--1').textContent='0';
-document.getElementById('current--0').textContent='0';
-document.getElementById('current--1').textContent='0';
-
-document.querySelector('.dice').style.display='none';
-
-document.getElementById('name--0').textContent= 'player 1';
-document.getElementById('name--1').textContent= 'player 2';
-
-document.querySelector('.player--0').classList.remove('player--winner');
-document.querySelector('.player--1').classList.remove('player--winner');
-document.querySelector('.player--0').classList.remove('player--active');
-document.querySelector('.player--1').classList.remove('player--active');
-document.querySelector('.player--0').classList.add('player--active');
+function calculateAge(el){
+    return 2021-el;
 }
+function isFullAge(el){
+    return el >= 18;
+}
+function maxHeartRate(el){
+    return Math.round(206.9 -(.67 * el));
+}
+var ages = arrayCalc(years, calculateAge);
+var fullAge = arrayCalc(ages,isFullAge);
+var heartRate = arrayCalc(ages,maxHeartRate);
 
+console.log(ages);
+console.log(fullAge);
+console.log(heartRate)
 
-// document.querySelector('#current--' + activePlayer).textContent = dice;
-// document.querySelector('#current--' + activePlayer).innerHTML ='<emp>'+dice+'</emp>'
-// let x = document.querySelector('#score--0').textContent;
