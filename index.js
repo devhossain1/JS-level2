@@ -1,83 +1,5 @@
 
 /*
-var Person= function(name, yearOfBirth, job){
-    this.name = name;
-    this.yearOfBirth= yearOfBirth;
-    this.job= job;
-}
-
-Person.prototype.calculateAge = function(){
-    console.log(2021-this.yearOfBirth);
-}
-
-Person.prototype.lastName = 'smith';
-
-var john = new Person('john',1990, 'teacher');
-var mark = new Person('mark',1992, 'doctor');
-var jane = new Person('jane',1994, 'developer');
-john.calculateAge();
-mark.calculateAge();
-jane.calculateAge();
-
-console.log(john.lastName);
-console.log(mark.lastName);
-console.log(jane.lastName);
-
-console.log(john);
-console.log(mark);
-*/
-/*
-var personProto = {
-    calculateAge:function(){
-        console.log(2021-this.yearOfBirth);
-    }
-};
-var john= Object.create(personProto);
-john.name='john';
-john.yearOfBirth=1993;
-john.job = 'teacher';
-
-var jane = Object.create(personProto,{
-    name: { value:'jane'},
-    yearOfBirth: { value: 1992},
-    job: { value: 'teacher'}
-});
-*/
-//primitive and object
-
-//primitive
-/*
-var a=23;
-var b=a;
-a=30;
-console.log(a);
-console.log(b);
-
-//object
-var obj1 = {
-    name:'john',
-    age:24
-};
-var obj2 = obj1;
-obj1.age = 30;
-console.log(obj1.age);
-console.log(obj2.age);
-//function
-var age = 34;
-var obj = {
-    name: 'jonas',
-    city:'dhaka'
-};
-
-function change(a, b){
-    a=28;
-    b.city='Mirput';
-};
-change(age, obj);
-console.log(age);
-console.log(obj.city);
-*/
-
 var years = [1990,1986, 1993,2007,1967];
 function arrayCalc(arr,fn){
     var arrRes =[];
@@ -102,4 +24,78 @@ var heartRate = arrayCalc(ages,maxHeartRate);
 console.log(ages);
 console.log(fullAge);
 console.log(heartRate)
+*/
+/*
+function interviewQuestion(job){
+    if(job ==="designer"){
+        return function(name){
+          console.log(name + ', do you explaing the UI design ?');
+        }
+      
+    }else if( job ==='teacher'){
+        return function(name){
+            console.log('what do you want to teach students,' + name);
+        }
+    }else{
+        return function(name){
+            console.log("hello" + name+ ' what do you do');
+        }
+    }
+}
 
+var designerQuestion = interviewQuestion('designer');
+var teacherQuestion = interviewQuestion('teacher');
+
+var doctorQuestion = interviewQuestion('doctor');
+designerQuestion('john');
+teacherQuestion('smith');
+teacherQuestion('roy');
+teacherQuestion('jonson');
+
+doctorQuestion('mark');
+interviewQuestion('designer')('hossain');
+
+// function game(){
+//     var score = Math.random() * 10;
+//     console.log(score >= 5);
+// }
+// game();
+
+(function(){
+    var score = Math.random()*10;
+    console.log(score >= 5);
+})();
+//console.log(score);
+
+(function(goodluck){
+    var score = Math.random()*10;
+    console.log(score >= 5 - goodluck);
+})(5);
+*/
+function retirement(retirementAge){
+
+    return function(yearOfBirth){
+        var a = 'years left until retirement';
+        var age = 2021-yearOfBirth;
+        console.log((retirementAge-age) +a );
+    }
+}
+var retirementUs = retirement(66);
+var retirementGer = retirement(65);
+retirement(60)(1970);
+
+retirementUs(1990);
+retirementGer(1987);
+//closures
+function interviewQuestion(job){
+    return function(name){
+        if(job=='teacher'){
+            console.log(name + ' can you please teach me ?');
+        }else if(job == 'designer'){
+            console.log(name + ' can you please explain ui design');
+        }else{
+            console.log(name + ' what can you please explain ui design');
+        }
+    }
+}
+interviewQuestion('teacher')("john");
