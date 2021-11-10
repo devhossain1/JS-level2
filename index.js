@@ -99,3 +99,22 @@ function interviewQuestion(job){
     }
 }
 interviewQuestion('teacher')("john");
+
+var john = {
+    name:'john',
+    age:27,
+    job:'teacher',
+    presentation:function(style,timeOfDay){
+        if(style == 'formal'){
+            console.log('good '+ timeOfDay + ' ladies and gentlemen! I \' am ' + this.name + 
+            ', I \' m a ' + this.job + ' and I am '+ this.age + ' years old.');
+        }else if(style =='friendly'){
+            console.log('Hi what\'s up I \'m '+ this.name + 
+            ', I \' m a ' + this.job + ' and I am '+ this.age + ' years old. Have a nice day '+ timeOfDay+'.');
+
+        }
+    }
+};
+
+
+john.presentation('formal', 'morning');
